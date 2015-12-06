@@ -150,4 +150,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="llenarListaTutores">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="llenarListaTutoresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

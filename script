@@ -1,0 +1,75 @@
+use tutoria;
+
+CREATE TABLE `usuario` (
+  `nombre` varchar(45) NOT NULL,
+  `clave` varchar(45) DEFAULT NULL,
+  `tipo` int(2) DEFAULT NULL,
+  PRIMARY KEY (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `especialidad` (
+  `codigo` int(11) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `profesor` (
+  `codigo` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `dni` varchar(8) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `idioma` int(11) DEFAULT NULL,
+  `año` int(11) DEFAULT NULL,
+  `grado` varchar(45) DEFAULT NULL,
+  `especialidad` int(11) DEFAULT NULL,
+  `fechaIni` datetime DEFAULT NULL,
+  `fechaRev` datetime DEFAULT NULL,
+  `fechaFin` datetime DEFAULT NULL,
+  `categoria` varchar(45) DEFAULT NULL,
+  `estutor` char(1) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`codigo`),
+  CONSTRAINT `especialidad` FOREIGN KEY (`especialidad`) REFERENCES `especialidad` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `alumno` (
+  `codigo` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `dni` varchar(8) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `ciclo` int(11) DEFAULT NULL,
+  `creditos` double DEFAULT NULL,
+  `especialidadActual` int(11) DEFAULT NULL,
+  `especialidadAnterior` int(11) DEFAULT NULL,
+  `resumenReuniones` varchar(45) DEFAULT NULL,
+  `unidad` varchar(45) DEFAULT NULL,
+  `tutor` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `tutor_idx` (`tutor`),
+  CONSTRAINT `especialidadActual` FOREIGN KEY (`especialidadActual`) REFERENCES `especialidad` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `especialidadAnterior` FOREIGN KEY (`especialidadAnterior`) REFERENCES `especialidad` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `tutor` FOREIGN KEY (`tutor`) REFERENCES `profesor` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `reunion` (
+  `codigo` int(11) NOT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `tema` varchar(45) DEFAULT NULL,
+  `sugerencias` varchar(200) DEFAULT NULL,
+  `alumno` int(11) DEFAULT NULL,
+  `profesor` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `alumno_idx` (`alumno`),
+  KEY `profesor_idx` (`profesor`),
+  CONSTRAINT `alumno` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `profesor` FOREIGN KEY (`profesor`) REFERENCES `profesor` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- inserts
+INSERT INTO usuario VALUES ("Carlo",1234,0);
+INSERT INTO usuario VALUES ("Jaimy",1234,1);
+INSERT INTO usuario VALUES ("Kevin",1234,2);
+
+INSERT INTO especialidad VALUES (1,"Ingeniería Informática");

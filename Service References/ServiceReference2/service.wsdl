@@ -67,6 +67,12 @@
   <wsdl:message name="IGestorTutoria_crearProfesor_OutputMessage">
     <wsdl:part name="parameters" element="tns:crearProfesorResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestorTutoria_llenarListaTutores_InputMessage">
+    <wsdl:part name="parameters" element="tns:llenarListaTutores" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_llenarListaTutores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:llenarListaTutoresResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestorTutoria">
     <wsdl:operation name="getNumeroTutores">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/getNumeroTutores" message="tns:IGestorTutoria_getNumeroTutores_InputMessage" />
@@ -107,6 +113,10 @@
     <wsdl:operation name="crearProfesor">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/crearProfesor" message="tns:IGestorTutoria_crearProfesor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/crearProfesorResponse" message="tns:IGestorTutoria_crearProfesor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="llenarListaTutores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/llenarListaTutores" message="tns:IGestorTutoria_llenarListaTutores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/llenarListaTutoresResponse" message="tns:IGestorTutoria_llenarListaTutores_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGestorTutoria" type="tns:IGestorTutoria">
@@ -194,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="crearProfesor">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/crearProfesor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="llenarListaTutores">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/llenarListaTutores" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

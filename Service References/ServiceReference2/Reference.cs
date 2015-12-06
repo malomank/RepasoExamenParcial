@@ -720,6 +720,12 @@ namespace Practica2.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/crearProfesorResponse")]
         System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> crearProfesorAsync(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/llenarListaTutores", ReplyAction="http://tempuri.org/IGestorTutoria/llenarListaTutoresResponse")]
+        void llenarListaTutores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/llenarListaTutores", ReplyAction="http://tempuri.org/IGestorTutoria/llenarListaTutoresResponse")]
+        System.Threading.Tasks.Task llenarListaTutoresAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -827,6 +833,14 @@ namespace Practica2.ServiceReference2 {
         
         public System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> crearProfesorAsync(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ) {
             return base.Channel.crearProfesorAsync(cod, nom, dn, corr, telf, reg, idio, anho, grad, esp, fIn, fRe, fFin, categ);
+        }
+        
+        public void llenarListaTutores() {
+            base.Channel.llenarListaTutores();
+        }
+        
+        public System.Threading.Tasks.Task llenarListaTutoresAsync() {
+            return base.Channel.llenarListaTutoresAsync();
         }
     }
 }

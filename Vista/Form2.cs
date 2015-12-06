@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 //using Modelo;
-//using Practica2.ServiceReference2;
+using Practica2.ServiceReference2;
 
 namespace Vista
 {
@@ -38,8 +38,8 @@ namespace Vista
             // string fIn,string fFin
             //codigo nombre dni correo telefono idioma año grado especialidad fechaInicio fechaRevalidacion fechaFin categoria esTutor
             //Agregar profesor
-            //ProfesorAgregado = clienteTutoria.crearProfesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.SelectedText, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.SelectedText);
-            ProfesorAgregado = new Practica2.ServiceReference2.Profesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.SelectedText, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.SelectedText);
+            ProfesorAgregado = clienteTutoria.crearProfesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.Text, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.Text);
+            //ProfesorAgregado = new Practica2.ServiceReference2.Profesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.SelectedText, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.SelectedText);
             
             //ProfesorOrdinario(int.Parse(textBoxCodigo.Text),textBoxNombre.Text,int.Parse(textBoxDNI.Text),textBoxCorreo.Text,int.Parse(textBoxTelefono.Text),comboBoxDedicacion.SelectedText,0,0,"PhD",informatica,dateTimePickerInicio.Text, dateTimePickerInicio.Text,dateTimePickerFin.Text,comboBoxCategoria.SelectedText);
             MessageBox.Show("Profesor agregado");
