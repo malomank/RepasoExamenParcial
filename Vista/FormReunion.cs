@@ -50,7 +50,6 @@ namespace Practica2.Vista
             MessageBox.Show("Reunión agregada");
             DialogResult = DialogResult.OK;
             
-            Console.WriteLine(alumno.Nombre + ": " + alumno.ListaReuniones.Count);
             this.Close();
         }
     }

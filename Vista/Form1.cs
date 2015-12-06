@@ -345,10 +345,11 @@ namespace Vista
             formularioReunion.ShowDialog(this);
             
             if (formularioReunion.DialogResult == DialogResult.OK) {
-                //Añadir reunion al alumno
-                GestorAlumnos.buscarAlumno(extraerCodigo(label_alumno[0])).agregarReunion(FormReunion.ReunionAgregado);
-                //Añadir reunion al tutor
-                GestorTutores.buscarTutor(GestorAlumnos.buscarAlumno(extraerCodigo(label_alumno[0])).Tutor.Codigo).agregarReunion(FormReunion.ReunionAgregado);
+
+                Practica2.ServiceReference2.Alumno alumnoN = clienteTutoria.buscarAlumno(extraerCodigo(label_alumno[0]));
+                Practica2.ServiceReference2.Profesor profesorN = clienteTutoria.buscarProfesor(alumnoN.Tutor.Codigo);
+
+                clienteTutoria.agregarReunion(alumnoN, profesorN, FormReunion.ReunionAgregado.Fecha, FormReunion.ReunionAgregado.Tema, FormReunion.ReunionAgregado.Sugerencias);
             }
         }
         /* Pregunta 5 */
