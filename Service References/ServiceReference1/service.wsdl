@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestorUsuario" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary1" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGestorUsuario_existe_InputMessage">
+    <wsdl:part name="parameters" element="tns:existe" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_existe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:existeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_buscarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_buscarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_agregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_agregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_guardarUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:guardarUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_guardarUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:guardarUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_imprimirUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:imprimirUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IGestorUsuario_imprimirUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:imprimirUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGestorUsuario">
+    <wsdl:operation name="existe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorUsuario/existe" message="tns:IGestorUsuario_existe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorUsuario/existeResponse" message="tns:IGestorUsuario_existe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorUsuario/buscarUsuario" message="tns:IGestorUsuario_buscarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorUsuario/buscarUsuarioResponse" message="tns:IGestorUsuario_buscarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorUsuario/agregarUsuario" message="tns:IGestorUsuario_agregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorUsuario/agregarUsuarioResponse" message="tns:IGestorUsuario_agregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="guardarUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorUsuario/guardarUsuarios" message="tns:IGestorUsuario_guardarUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorUsuario/guardarUsuariosResponse" message="tns:IGestorUsuario_guardarUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="imprimirUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorUsuario/imprimirUsuarios" message="tns:IGestorUsuario_imprimirUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorUsuario/imprimirUsuariosResponse" message="tns:IGestorUsuario_imprimirUsuarios_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGestorUsuario" type="tns:IGestorUsuario">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="existe">
+      <soap:operation soapAction="http://tempuri.org/IGestorUsuario/existe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IGestorUsuario/buscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IGestorUsuario/agregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IGestorUsuario/guardarUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="imprimirUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IGestorUsuario/imprimirUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestorUsuario">
+    <wsdl:port name="BasicHttpBinding_IGestorUsuario" binding="tns:BasicHttpBinding_IGestorUsuario">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

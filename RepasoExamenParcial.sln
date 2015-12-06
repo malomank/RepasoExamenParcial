@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepasoExamenParcial", "RepasoExamenParcial.csproj", "{AC707018-5759-4E8D-B463-8F3517EA4B39}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE} = {7B054C3E-A81E-4C96-99D3-728EFB3128AE}
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859} = {9CF2FF80-E804-465D-BF54-D2C81F6BC859}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "..\WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{9CF2FF80-E804-465D-BF54-D2C81F6BC859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary2", "..\WcfServiceLibrary2\WcfServiceLibrary2.csproj", "{7B054C3E-A81E-4C96-99D3-728EFB3128AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Debug|x86.ActiveCfg = Debug|x86
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Debug|x86.Build.0 = Debug|x86
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Release|Any CPU.ActiveCfg = Release|x86
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Release|x86.ActiveCfg = Release|x86
+		{AC707018-5759-4E8D-B463-8F3517EA4B39}.Release|x86.Build.0 = Release|x86
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Debug|x86.Build.0 = Debug|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Release|x86.ActiveCfg = Release|Any CPU
+		{9CF2FF80-E804-465D-BF54-D2C81F6BC859}.Release|x86.Build.0 = Release|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Debug|x86.Build.0 = Debug|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Release|x86.ActiveCfg = Release|Any CPU
+		{7B054C3E-A81E-4C96-99D3-728EFB3128AE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
