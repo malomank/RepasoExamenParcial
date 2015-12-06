@@ -313,9 +313,10 @@ namespace Vista
         private void agregarProfesor(object sender, EventArgs e)
         {
             //Profesor profesor;
-            formularioProfesor = new Form2(/*ref profesor*/);
+            formularioProfesor = new Form2(clienteTutoria);
             formularioProfesor.ShowDialog(this);
             if(formularioProfesor.DialogResult == DialogResult.OK)
+                //clienteTutoria.agregarProfesorTutor(Form2.ProfesorAgregado);
                 GestorTutores.Tutores.Add(new ProfesorTutor(Form2.ProfesorAgregado));
             cargarArbol();
         }

@@ -13,10 +13,13 @@ namespace Vista
     public partial class Form2 : Form
     {
         public static Profesor ProfesorAgregado;
+        Practica2.ServiceReference2.GestorTutoriaClient clienteTutoria;
         Especialidad informatica = new Especialidad(1, "Ingeniería Informática");
-        public Form2()
+        public Form2(Practica2.ServiceReference2.GestorTutoriaClient tutoria)
         {
+            this.clienteTutoria = tutoria;
             InitializeComponent();
+            ProfesorAgregado = null;
         }
         /// <summary>
         /// Evento que permite agregar tutor
@@ -29,7 +32,7 @@ namespace Vista
             // string fIn,string fFin
             //codigo nombre dni correo telefono idioma año grado especialidad fechaInicio fechaRevalidacion fechaFin categoria esTutor
             //Agregar profesor
-            ProfesorAgregado = new ProfesorOrdinario(int.Parse(textBoxCodigo.Text),textBoxNombre.Text,int.Parse(textBoxDNI.Text),"pucp",0,comboBoxDedicacion.SelectedText,0,0,"PhD",informatica,dateTimePickerInicio.Text, dateTimePickerInicio.Text,dateTimePickerFin.Text,comboBoxCategoria.SelectedText);
+            ProfesorAgregado = new ProfesorOrdinario(int.Parse(textBoxCodigo.Text),textBoxNombre.Text,int.Parse(textBoxDNI.Text),textBoxCorreo.Text,int.Parse(textBoxTelefono.Text),comboBoxDedicacion.SelectedText,0,0,"PhD",informatica,dateTimePickerInicio.Text, dateTimePickerInicio.Text,dateTimePickerFin.Text,comboBoxCategoria.SelectedText);
             MessageBox.Show("Profesor agregado");
             DialogResult = DialogResult.OK;
             this.Close();
