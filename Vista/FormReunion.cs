@@ -1,5 +1,5 @@
 ﻿using Controlador;
-using Modelo;
+//using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Practica2.ServiceReference2;
 
 namespace Practica2.Vista
 {

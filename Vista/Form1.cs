@@ -197,9 +197,8 @@ namespace Vista
             //Practica2.ServiceReference2.Especialidad especialidad = clienteTutoria.getEspecialidad(1);
             this.treeView1.Nodes.Add("Especialidad","Ingeniería Informática");
             for (int i = 0; i < clienteTutoria.getNumeroTutores(); i++){
-                //for (int i = 0; i < GestorTutores.Tutores.Count; i++){
+
                 Practica2.ServiceReference2.Profesor tutor = clienteTutoria.getTutor(i);             
-                //this.treeView1.Nodes[0].Nodes.Add("Profesor", GestorTutores.Tutores[i].getNodoProfesor());
                 this.treeView1.Nodes[0].Nodes.Add("Profesor", tutor.Codigo + "-" + tutor.Nombre);
                 Practica2.ServiceReference2.Alumno[] ListaAlumno = clienteTutoria.getAlumnos(tutor);
                 for (int j=0;j< ListaAlumno.Length; j++){
@@ -290,21 +289,19 @@ namespace Vista
             int codigo = extraerCodigo(palabras[0]);
             //int codigo = extraerCodigo(node.Text);
             //Alumno alumno = clienteTutoria.buscarAlumno(codigo);
-            Alumno alumno = GestorAlumnos.buscarAlumno(codigo);
+            Practica2.ServiceReference2.Alumno alumno = clienteTutoria.buscarAlumno(codigo);
+            //Alumno alumno = GestorAlumnos.buscarAlumno(codigo);            
             ColumnAlumno.Visible = true;
             ColumnFecha.Visible = true;
             ColumnTema.Visible = true;
             ColumnaReunion.Visible = false;
             this.dataGridView1.Rows.Clear();
             //Para todas las reuniones
-            foreach(Reunion reu in alumno.ListaReuniones)
+            foreach (Practica2.ServiceReference2.Reunion reu in alumno.ListaReuniones)
             {//El 0 va xq reuniones está oculto
-                //if (alumno.Unidad = "FCI")
-                if (alumno is AlumnoFCI)
-                    this.dataGridView1.Rows.Add(reu.Profesor.Nombre,"0", reu.Fecha, reu.Tema,alumno.Nombre + " (FCI)");
-                else
-                    this.dataGridView1.Rows.Add(reu.Profesor.Nombre, "0", reu.Fecha, reu.Tema, alumno.Nombre + " (EEGGCC)");
+                this.dataGridView1.Rows.Add(reu.Profesor.Nombre, "0", reu.Fecha, reu.Tema, alumno.Nombre + " (" + alumno.Unidad+")");
             }
+            
         }
 
         private int extraerCodigo(string p)
@@ -326,14 +323,15 @@ namespace Vista
         private void agregarAlumno(object sender, EventArgs e)
         {
             //Mostrar el formulario de alumno
-            formularioALumno = new FormAlumno(tipoUsuario);
+            formularioALumno = new FormAlumno(tipoUsuario, clienteTutoria);
             formularioALumno.ShowDialog(this);
             string[] palabras = this.treeView1.SelectedNode.Text.Split('-');
             if (formularioALumno.DialogResult == DialogResult.OK)
             {
-                GestorTutores.buscarTutor(extraerCodigo(palabras[0])).agregarAlumno(FormAlumno.AlumnoAgregado);
-                FormAlumno.AlumnoAgregado.Tutor = GestorTutores.buscarTutor(extraerCodigo(palabras[0])).Profesor;
-                GestorAlumnos.Alumnos.Add(FormAlumno.AlumnoAgregado);
+                Practica2.ServiceReference2.Profesor p = clienteTutoria.buscarProfesor(extraerCodigo(palabras[0]));
+                Console.Out.WriteLine("codigo: " + extraerCodigo(palabras[0]));
+                FormAlumno.AlumnoAgregado.Tutor = p;
+                clienteTutoria.agregarAlumno(FormAlumno.AlumnoAgregado);
             }
             cargarArbol();
         }
@@ -342,8 +340,8 @@ namespace Vista
         {
             //Mostrar el formulario de reunion
             string[] label_alumno = this.treeView1.SelectedNode.Text.Split('-');
-
-            formularioReunion = new FormReunion(GestorAlumnos.buscarAlumno(extraerCodigo(label_alumno[0])));
+            
+            formularioReunion = new FormReunion(clienteTutoria.buscarAlumno(extraerCodigo(label_alumno[0])));
             formularioReunion.ShowDialog(this);
             
             if (formularioReunion.DialogResult == DialogResult.OK) {

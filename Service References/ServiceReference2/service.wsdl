@@ -25,6 +25,12 @@
   <wsdl:message name="IGestorTutoria_getAlumnos_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAlumnosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestorTutoria_crearAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_crearAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearAlumnoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestorTutoria_agregarAlumno_InputMessage">
     <wsdl:part name="parameters" element="tns:agregarAlumno" />
   </wsdl:message>
@@ -86,6 +92,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/getAlumnos" message="tns:IGestorTutoria_getAlumnos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/getAlumnosResponse" message="tns:IGestorTutoria_getAlumnos_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="crearAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/crearAlumno" message="tns:IGestorTutoria_crearAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/crearAlumnoResponse" message="tns:IGestorTutoria_crearAlumno_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="agregarAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarAlumno" message="tns:IGestorTutoria_agregarAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarAlumnoResponse" message="tns:IGestorTutoria_agregarAlumno_OutputMessage" />
@@ -141,6 +151,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAlumnos">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/getAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearAlumno">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/crearAlumno" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

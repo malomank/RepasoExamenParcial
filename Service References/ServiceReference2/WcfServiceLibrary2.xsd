@@ -48,9 +48,11 @@
       <xs:extension base="tns:Persona">
         <xs:sequence>
           <xs:element minOccurs="0" name="Ciclo" type="xs:int" />
-          <xs:element minOccurs="0" name="Creditos" type="xs:int" />
-          <xs:element minOccurs="0" name="Especialidad" nillable="true" type="tns:Especialidad" />
+          <xs:element minOccurs="0" name="Creditos" type="xs:double" />
+          <xs:element minOccurs="0" name="EspecialidadActual" nillable="true" type="tns:Especialidad" />
+          <xs:element minOccurs="0" name="EspecialidadAnterior" nillable="true" type="tns:Especialidad" />
           <xs:element minOccurs="0" name="ListaReuniones" nillable="true" type="tns:ArrayOfReunion" />
+          <xs:element minOccurs="0" name="ResumenReuniones" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Tutor" nillable="true" type="tns:Profesor" />
           <xs:element minOccurs="0" name="Unidad" nillable="true" type="xs:string" />
         </xs:sequence>

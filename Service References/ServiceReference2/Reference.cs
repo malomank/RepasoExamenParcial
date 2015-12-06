@@ -134,13 +134,19 @@ namespace Practica2.ServiceReference2 {
         private int CicloField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CreditosField;
+        private double CreditosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Practica2.ServiceReference2.Especialidad EspecialidadField;
+        private Practica2.ServiceReference2.Especialidad EspecialidadActualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Practica2.ServiceReference2.Especialidad EspecialidadAnteriorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Practica2.ServiceReference2.Reunion[] ListaReunionesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResumenReunionesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Practica2.ServiceReference2.Profesor TutorField;
@@ -162,7 +168,7 @@ namespace Practica2.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Creditos {
+        public double Creditos {
             get {
                 return this.CreditosField;
             }
@@ -175,14 +181,27 @@ namespace Practica2.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Practica2.ServiceReference2.Especialidad Especialidad {
+        public Practica2.ServiceReference2.Especialidad EspecialidadActual {
             get {
-                return this.EspecialidadField;
+                return this.EspecialidadActualField;
             }
             set {
-                if ((object.ReferenceEquals(this.EspecialidadField, value) != true)) {
-                    this.EspecialidadField = value;
-                    this.RaisePropertyChanged("Especialidad");
+                if ((object.ReferenceEquals(this.EspecialidadActualField, value) != true)) {
+                    this.EspecialidadActualField = value;
+                    this.RaisePropertyChanged("EspecialidadActual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Practica2.ServiceReference2.Especialidad EspecialidadAnterior {
+            get {
+                return this.EspecialidadAnteriorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EspecialidadAnteriorField, value) != true)) {
+                    this.EspecialidadAnteriorField = value;
+                    this.RaisePropertyChanged("EspecialidadAnterior");
                 }
             }
         }
@@ -196,6 +215,19 @@ namespace Practica2.ServiceReference2 {
                 if ((object.ReferenceEquals(this.ListaReunionesField, value) != true)) {
                     this.ListaReunionesField = value;
                     this.RaisePropertyChanged("ListaReuniones");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResumenReuniones {
+            get {
+                return this.ResumenReunionesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResumenReunionesField, value) != true)) {
+                    this.ResumenReunionesField = value;
+                    this.RaisePropertyChanged("ResumenReuniones");
                 }
             }
         }
@@ -679,6 +711,12 @@ namespace Practica2.ServiceReference2 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getAlumnos", ReplyAction="http://tempuri.org/IGestorTutoria/getAlumnosResponse")]
         System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno[]> getAlumnosAsync(Practica2.ServiceReference2.Profesor profesor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearAlumno", ReplyAction="http://tempuri.org/IGestorTutoria/crearAlumnoResponse")]
+        Practica2.ServiceReference2.Alumno crearAlumno(int cod, string nom, int dn, string corr, int telf, int cic, double cred, Practica2.ServiceReference2.Especialidad especialidadActual, Practica2.ServiceReference2.Especialidad especialidadAnterior, string resumenReuniones, string unidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearAlumno", ReplyAction="http://tempuri.org/IGestorTutoria/crearAlumnoResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno> crearAlumnoAsync(int cod, string nom, int dn, string corr, int telf, int cic, double cred, Practica2.ServiceReference2.Especialidad especialidadActual, Practica2.ServiceReference2.Especialidad especialidadAnterior, string resumenReuniones, string unidad);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarAlumno", ReplyAction="http://tempuri.org/IGestorTutoria/agregarAlumnoResponse")]
         void agregarAlumno(Practica2.ServiceReference2.Alumno alumno);
         
@@ -777,6 +815,14 @@ namespace Practica2.ServiceReference2 {
         
         public System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno[]> getAlumnosAsync(Practica2.ServiceReference2.Profesor profesor) {
             return base.Channel.getAlumnosAsync(profesor);
+        }
+        
+        public Practica2.ServiceReference2.Alumno crearAlumno(int cod, string nom, int dn, string corr, int telf, int cic, double cred, Practica2.ServiceReference2.Especialidad especialidadActual, Practica2.ServiceReference2.Especialidad especialidadAnterior, string resumenReuniones, string unidad) {
+            return base.Channel.crearAlumno(cod, nom, dn, corr, telf, cic, cred, especialidadActual, especialidadAnterior, resumenReuniones, unidad);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno> crearAlumnoAsync(int cod, string nom, int dn, string corr, int telf, int cic, double cred, Practica2.ServiceReference2.Especialidad especialidadActual, Practica2.ServiceReference2.Especialidad especialidadAnterior, string resumenReuniones, string unidad) {
+            return base.Channel.crearAlumnoAsync(cod, nom, dn, corr, telf, cic, cred, especialidadActual, especialidadAnterior, resumenReuniones, unidad);
         }
         
         public void agregarAlumno(Practica2.ServiceReference2.Alumno alumno) {

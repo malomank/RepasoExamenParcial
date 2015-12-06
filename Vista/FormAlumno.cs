@@ -6,17 +6,24 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Modelo;
-using Practica2.Modelo;
+//using Modelo;
+//using Practica2.Modelo;
+using Practica2.ServiceReference2;
 
 namespace Vista
 {
     public partial class FormAlumno : Form
     {
         public static Alumno AlumnoAgregado;
-        public FormAlumno(int tipoUsuario)
+        private Especialidad informatica;
+        Practica2.ServiceReference2.GestorTutoriaClient clienteTutoria;
+        public FormAlumno(int tipoUsuario, Practica2.ServiceReference2.GestorTutoriaClient tutoria)
         {
             InitializeComponent();
+            informatica = new Especialidad();
+            informatica.Codigo = 1;
+            informatica.Nombre = "Ingeniería Informática";
+            this.clienteTutoria = tutoria;
             if (tipoUsuario == 1)
                 radioButton2FCI.Visible = false;
             if (tipoUsuario == 2)
@@ -29,49 +36,23 @@ namespace Vista
         /// <param name="e">Argumentos del evento</param>
         private void button1_Click(object sender, EventArgs e)
         {
-            //Agregar alumno            
-            AlumnoNuevo();
-            Console.WriteLine(radioButton1EEGGCC.Checked);
-            Console.WriteLine(radioButton2FCI.Text);
-            MessageBox.Show("Alumno agregado");
-            DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        public void AlumnoNuevo()
-        {
-            if (radioButton1EEGGCC.Checked)
+            //Agregar alumno   
+            Alumno alumnoNuevo = clienteTutoria.buscarAlumno(int.Parse(textBoxCodigo.Text));
+            if (alumnoNuevo != null)
             {
-                AlumnoAgregado = new AlumnoEEGGCC();
-                AlumnoAgregado.Codigo = int.Parse(textBoxCodigo.Text);
-                AlumnoAgregado.Nombre = textBoxNombre.Text;
-                AlumnoAgregado.Dni = int.Parse(textBoxDNI.Text);
-                AlumnoAgregado.Correo = textBoxCorreo.Text;
-                AlumnoAgregado.Telefono = int.Parse(textBoxTelefono.Text);
-                AlumnoAgregado.Ciclo = int.Parse(textBoxCiclo.Text);
-                AlumnoAgregado.Creditos = int.Parse(textBoxCreditos.Text);
-                AlumnoAgregado.Unidad = "EEGGCC";
-                //Especialidad Actual
-                //especialidad Anterior
-                //tutor
+                MessageBox.Show("Ya existe un alumno con este codigo");
+                return;
             }
             else
             {
-                AlumnoAgregado = new AlumnoFCI();
-                AlumnoAgregado.Codigo = int.Parse(textBoxCodigo.Text);
-                AlumnoAgregado.Nombre = textBoxNombre.Text;
-                AlumnoAgregado.Dni = int.Parse(textBoxDNI.Text);
-                AlumnoAgregado.Correo = textBoxCorreo.Text;
-                AlumnoAgregado.Telefono = int.Parse(textBoxTelefono.Text);
-                AlumnoAgregado.Ciclo = int.Parse(textBoxCiclo.Text);
-                AlumnoAgregado.Creditos = int.Parse(textBoxCreditos.Text);
-                AlumnoAgregado.Unidad = "FCI";
-                //Especialidad Actual
-                //especialidad Anterior
-                //Resumen reuniones
-                //tutor
+                if (radioButton1EEGGCC.Checked)
+                    AlumnoAgregado = clienteTutoria.crearAlumno(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), int.Parse(textBoxCiclo.Text), double.Parse(textBoxCreditos.Text), informatica, null, "", "EEGGCC");
+                else
+                    AlumnoAgregado = clienteTutoria.crearAlumno(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), int.Parse(textBoxCiclo.Text), double.Parse(textBoxCreditos.Text), informatica, null, "", "FCI");
             }
-
+            MessageBox.Show("Alumno agregado");
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
