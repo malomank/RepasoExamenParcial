@@ -210,6 +210,9 @@
     <None Include="Service References\ServiceReference2\Practica2.ServiceReference2.Alumno.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference2\Practica2.ServiceReference2.Profesor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference2\Practica2.ServiceReference2.ProfesorTutor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

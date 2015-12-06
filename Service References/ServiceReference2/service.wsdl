@@ -7,6 +7,24 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGestorTutoria_getNumeroTutores_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNumeroTutores" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_getNumeroTutores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNumeroTutoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_getTutor_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTutor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_getTutor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_getAlumnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_getAlumnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAlumnosResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestorTutoria_agregarAlumno_InputMessage">
     <wsdl:part name="parameters" element="tns:agregarAlumno" />
   </wsdl:message>
@@ -31,7 +49,37 @@
   <wsdl:message name="IGestorTutoria_buscarTutor_OutputMessage">
     <wsdl:part name="parameters" element="tns:buscarTutorResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarProfesor_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarProfesor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarProfesor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarProfesorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_agregarProfesorTutor_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarProfesorTutor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_agregarProfesorTutor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarProfesorTutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_crearProfesor_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearProfesor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_crearProfesor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearProfesorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestorTutoria">
+    <wsdl:operation name="getNumeroTutores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/getNumeroTutores" message="tns:IGestorTutoria_getNumeroTutores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/getNumeroTutoresResponse" message="tns:IGestorTutoria_getNumeroTutores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTutor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/getTutor" message="tns:IGestorTutoria_getTutor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/getTutorResponse" message="tns:IGestorTutoria_getTutor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAlumnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/getAlumnos" message="tns:IGestorTutoria_getAlumnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/getAlumnosResponse" message="tns:IGestorTutoria_getAlumnos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="agregarAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarAlumno" message="tns:IGestorTutoria_agregarAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarAlumnoResponse" message="tns:IGestorTutoria_agregarAlumno_OutputMessage" />
@@ -48,9 +96,48 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarTutor" message="tns:IGestorTutoria_buscarTutor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/buscarTutorResponse" message="tns:IGestorTutoria_buscarTutor_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="buscarProfesor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarProfesor" message="tns:IGestorTutoria_buscarProfesor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/buscarProfesorResponse" message="tns:IGestorTutoria_buscarProfesor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarProfesorTutor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutor" message="tns:IGestorTutoria_agregarProfesorTutor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutorResponse" message="tns:IGestorTutoria_agregarProfesorTutor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearProfesor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/crearProfesor" message="tns:IGestorTutoria_crearProfesor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/crearProfesorResponse" message="tns:IGestorTutoria_crearProfesor_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGestorTutoria" type="tns:IGestorTutoria">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getNumeroTutores">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/getNumeroTutores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTutor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/getTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlumnos">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/getAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="agregarAlumno">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/agregarAlumno" style="document" />
       <wsdl:input>
@@ -80,6 +167,33 @@
     </wsdl:operation>
     <wsdl:operation name="buscarTutor">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/buscarTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarProfesor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/buscarProfesor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarProfesorTutor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/agregarProfesorTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearProfesor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/crearProfesor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

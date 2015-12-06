@@ -6,20 +6,26 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Modelo;
+//using Modelo;
+//using Practica2.ServiceReference2;
 
 namespace Vista
 {
     public partial class Form2 : Form
     {
-        public static Profesor ProfesorAgregado;
+        //public static Profesor ProfesorAgregado;
+        public static Practica2.ServiceReference2.Profesor ProfesorAgregado;
         Practica2.ServiceReference2.GestorTutoriaClient clienteTutoria;
-        Especialidad informatica = new Especialidad(1, "Ingeniería Informática");
+        Practica2.ServiceReference2.Especialidad informatica;
+
         public Form2(Practica2.ServiceReference2.GestorTutoriaClient tutoria)
         {
             this.clienteTutoria = tutoria;
             InitializeComponent();
             ProfesorAgregado = null;
+            informatica = new Practica2.ServiceReference2.Especialidad();
+            informatica.Codigo = 1;
+            informatica.Nombre = "Ingeniería Informática";
         }
         /// <summary>
         /// Evento que permite agregar tutor
@@ -32,7 +38,10 @@ namespace Vista
             // string fIn,string fFin
             //codigo nombre dni correo telefono idioma año grado especialidad fechaInicio fechaRevalidacion fechaFin categoria esTutor
             //Agregar profesor
-            ProfesorAgregado = new ProfesorOrdinario(int.Parse(textBoxCodigo.Text),textBoxNombre.Text,int.Parse(textBoxDNI.Text),textBoxCorreo.Text,int.Parse(textBoxTelefono.Text),comboBoxDedicacion.SelectedText,0,0,"PhD",informatica,dateTimePickerInicio.Text, dateTimePickerInicio.Text,dateTimePickerFin.Text,comboBoxCategoria.SelectedText);
+            //ProfesorAgregado = clienteTutoria.crearProfesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.SelectedText, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.SelectedText);
+            ProfesorAgregado = new Practica2.ServiceReference2.Profesor(int.Parse(textBoxCodigo.Text), textBoxNombre.Text, int.Parse(textBoxDNI.Text), textBoxCorreo.Text, int.Parse(textBoxTelefono.Text), comboBoxDedicacion.SelectedText, 0, 0, "PhD", informatica, dateTimePickerInicio.Text, dateTimePickerInicio.Text, dateTimePickerFin.Text, comboBoxCategoria.SelectedText);
+            
+            //ProfesorOrdinario(int.Parse(textBoxCodigo.Text),textBoxNombre.Text,int.Parse(textBoxDNI.Text),textBoxCorreo.Text,int.Parse(textBoxTelefono.Text),comboBoxDedicacion.SelectedText,0,0,"PhD",informatica,dateTimePickerInicio.Text, dateTimePickerInicio.Text,dateTimePickerFin.Text,comboBoxCategoria.SelectedText);
             MessageBox.Show("Profesor agregado");
             DialogResult = DialogResult.OK;
             this.Close();

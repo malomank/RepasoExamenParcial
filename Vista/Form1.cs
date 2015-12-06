@@ -14,6 +14,7 @@ using Practica2.Modelo;
 using Practica2.Vista;
 using System.Threading;
 
+
 namespace Vista
 {
     public partial class Form1 : Form
@@ -195,19 +196,20 @@ namespace Vista
             this.treeView1.Nodes.Clear();
             //Practica2.ServiceReference2.Especialidad especialidad = clienteTutoria.getEspecialidad(1);
             this.treeView1.Nodes.Add("Especialidad","Ingeniería Informática");
-            //for (int i = 0; i < clienteTutoria.getNumeroTutores(); i++){
-            for (int i = 0; i < GestorTutores.Tutores.Count; i++){
-                //Profesor tutor = clienteTutoria.getTutor(i);             
-                this.treeView1.Nodes[0].Nodes.Add("Profesor", GestorTutores.Tutores[i].getNodoProfesor());
-                //this.treeView1.Nodes[0].Nodes.Add("Profesor", tutor.Codigo + "-" + tutor.Nombre);
-                //List<Alumno> ListaAlumno = gestorTutoria.getAlumnos(tutor);
-                //for (int j=0;j<GestorTutores.ListaAlumno.Count;j++){
-                for (int j=0;j<GestorTutores.Tutores[i].ListaAlumno.Count;j++){
-                    //string mostrar = ListaAlumno[j].Codigo + "-" + ListaAlumno[j].Nombre + " (" + ListaAlumno[j].Unidad + ")";
-                    string mostrar = GestorTutores.Tutores[i].ListaAlumno[j].Codigo + "--" + GestorTutores.Tutores[i].ListaAlumno[j].Nombre;
+            for (int i = 0; i < clienteTutoria.getNumeroTutores(); i++){
+                //for (int i = 0; i < GestorTutores.Tutores.Count; i++){
+                Practica2.ServiceReference2.Profesor tutor = clienteTutoria.getTutor(i);             
+                //this.treeView1.Nodes[0].Nodes.Add("Profesor", GestorTutores.Tutores[i].getNodoProfesor());
+                this.treeView1.Nodes[0].Nodes.Add("Profesor", tutor.Codigo + "-" + tutor.Nombre);
+                Practica2.ServiceReference2.Alumno[] ListaAlumno = clienteTutoria.getAlumnos(tutor);
+                for (int j=0;j< ListaAlumno.Length; j++){
+                //for (int j=0;j<GestorTutores.Tutores[i].ListaAlumno.Count;j++){
+                    string mostrar = ListaAlumno[j].Codigo + "-" + ListaAlumno[j].Nombre + " (" + ListaAlumno[j].Unidad + ")";
+                    //string mostrar = GestorTutores.Tutores[i].ListaAlumno[j].Codigo + "--" + GestorTutores.Tutores[i].ListaAlumno[j].Nombre;
                     if (tipoUsuario == 0)
                     {
-                        //this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
+                        this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
+                        /*
                         if (GestorTutores.Tutores[i].ListaAlumno[j] is AlumnoEEGGCC)
                         {
                             mostrar = mostrar + " (EEGGCC)";
@@ -216,25 +218,25 @@ namespace Vista
                         {
                             mostrar = mostrar + " (FCI)";
                         }
-                        this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
+                        this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);*/
                     }
-                    else if (tipoUsuario == 1) // && ListaAlumno[j].Unidad=="EEGGCC" )
+                    else if (tipoUsuario == 1  && ListaAlumno[j].Unidad=="EEGGCC" )
                     {
-                        //this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
-                        if (GestorTutores.Tutores[i].ListaAlumno[j] is AlumnoEEGGCC)
+                        this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
+                        /*if (GestorTutores.Tutores[i].ListaAlumno[j] is AlumnoEEGGCC)
                         {
                             mostrar = mostrar + " (EEGGCC)";
                             this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
-                        }
+                        }*/
                     }
-                    else if (tipoUsuario == 2) //&& ListaAlumno[j].Unidad=="FCI" )
+                    else if (tipoUsuario == 2 && ListaAlumno[j].Unidad=="FCI" )
                     {
-                        //this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
-                        if (GestorTutores.Tutores[i].ListaAlumno[j] is AlumnoFCI)
+                        this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
+                        /*if (GestorTutores.Tutores[i].ListaAlumno[j] is AlumnoFCI)
                         {
                             mostrar = mostrar + " (FCI)";
                             this.treeView1.Nodes[0].Nodes[i].Nodes.Add("Alumno", mostrar);
-                        }
+                        }*/
                     }                   
                 }                      
             }
@@ -316,8 +318,8 @@ namespace Vista
             formularioProfesor = new Form2(clienteTutoria);
             formularioProfesor.ShowDialog(this);
             if(formularioProfesor.DialogResult == DialogResult.OK)
-                //clienteTutoria.agregarProfesorTutor(Form2.ProfesorAgregado);
-                GestorTutores.Tutores.Add(new ProfesorTutor(Form2.ProfesorAgregado));
+                clienteTutoria.agregarProfesorTutor(Form2.ProfesorAgregado);
+                //GestorTutores.Tutores.Add(new ProfesorTutor(Form2.ProfesorAgregado));
             cargarArbol();
         }
 

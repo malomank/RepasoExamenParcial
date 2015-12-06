@@ -17,8 +17,8 @@ namespace Practica2.ServiceReference2 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Persona", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Practica2.ServiceReference2.Profesor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Practica2.ServiceReference2.Alumno))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Practica2.ServiceReference2.Profesor))]
     public partial class Persona : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -126,13 +126,6 @@ namespace Practica2.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profesor", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
-    [System.SerializableAttribute()]
-    public partial class Profesor : Practica2.ServiceReference2.Persona {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Alumno", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
     [System.SerializableAttribute()]
     public partial class Alumno : Practica2.ServiceReference2.Persona {
@@ -151,6 +144,9 @@ namespace Practica2.ServiceReference2 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Practica2.ServiceReference2.Profesor TutorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnidadField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Ciclo {
@@ -213,6 +209,186 @@ namespace Practica2.ServiceReference2 {
                 if ((object.ReferenceEquals(this.TutorField, value) != true)) {
                     this.TutorField = value;
                     this.RaisePropertyChanged("Tutor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unidad {
+            get {
+                return this.UnidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnidadField, value) != true)) {
+                    this.UnidadField = value;
+                    this.RaisePropertyChanged("Unidad");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profesor", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class Profesor : Practica2.ServiceReference2.Persona {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AnosExpField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char EsTutorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Practica2.ServiceReference2.Especialidad EspecialidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaFinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaRevaluacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GradoAcademicoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RegimenDedicacionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AnosExp {
+            get {
+                return this.AnosExpField;
+            }
+            set {
+                if ((this.AnosExpField.Equals(value) != true)) {
+                    this.AnosExpField = value;
+                    this.RaisePropertyChanged("AnosExp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Categoria {
+            get {
+                return this.CategoriaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoriaField, value) != true)) {
+                    this.CategoriaField = value;
+                    this.RaisePropertyChanged("Categoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char EsTutor {
+            get {
+                return this.EsTutorField;
+            }
+            set {
+                if ((this.EsTutorField.Equals(value) != true)) {
+                    this.EsTutorField = value;
+                    this.RaisePropertyChanged("EsTutor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Practica2.ServiceReference2.Especialidad Especialidad {
+            get {
+                return this.EspecialidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EspecialidadField, value) != true)) {
+                    this.EspecialidadField = value;
+                    this.RaisePropertyChanged("Especialidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaFin {
+            get {
+                return this.FechaFinField;
+            }
+            set {
+                if ((this.FechaFinField.Equals(value) != true)) {
+                    this.FechaFinField = value;
+                    this.RaisePropertyChanged("FechaFin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaInicio {
+            get {
+                return this.FechaInicioField;
+            }
+            set {
+                if ((this.FechaInicioField.Equals(value) != true)) {
+                    this.FechaInicioField = value;
+                    this.RaisePropertyChanged("FechaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaRevaluacion {
+            get {
+                return this.FechaRevaluacionField;
+            }
+            set {
+                if ((this.FechaRevaluacionField.Equals(value) != true)) {
+                    this.FechaRevaluacionField = value;
+                    this.RaisePropertyChanged("FechaRevaluacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GradoAcademico {
+            get {
+                return this.GradoAcademicoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GradoAcademicoField, value) != true)) {
+                    this.GradoAcademicoField = value;
+                    this.RaisePropertyChanged("GradoAcademico");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Idioma {
+            get {
+                return this.IdiomaField;
+            }
+            set {
+                if ((this.IdiomaField.Equals(value) != true)) {
+                    this.IdiomaField = value;
+                    this.RaisePropertyChanged("Idioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RegimenDedicacion {
+            get {
+                return this.RegimenDedicacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegimenDedicacionField, value) != true)) {
+                    this.RegimenDedicacionField = value;
+                    this.RaisePropertyChanged("RegimenDedicacion");
                 }
             }
         }
@@ -485,6 +661,24 @@ namespace Practica2.ServiceReference2 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IGestorTutoria")]
     public interface IGestorTutoria {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getNumeroTutores", ReplyAction="http://tempuri.org/IGestorTutoria/getNumeroTutoresResponse")]
+        int getNumeroTutores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getNumeroTutores", ReplyAction="http://tempuri.org/IGestorTutoria/getNumeroTutoresResponse")]
+        System.Threading.Tasks.Task<int> getNumeroTutoresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getTutor", ReplyAction="http://tempuri.org/IGestorTutoria/getTutorResponse")]
+        Practica2.ServiceReference2.Profesor getTutor(int i);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getTutor", ReplyAction="http://tempuri.org/IGestorTutoria/getTutorResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> getTutorAsync(int i);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getAlumnos", ReplyAction="http://tempuri.org/IGestorTutoria/getAlumnosResponse")]
+        Practica2.ServiceReference2.Alumno[] getAlumnos(Practica2.ServiceReference2.Profesor profesor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/getAlumnos", ReplyAction="http://tempuri.org/IGestorTutoria/getAlumnosResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno[]> getAlumnosAsync(Practica2.ServiceReference2.Profesor profesor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarAlumno", ReplyAction="http://tempuri.org/IGestorTutoria/agregarAlumnoResponse")]
         void agregarAlumno(Practica2.ServiceReference2.Alumno alumno);
         
@@ -508,6 +702,24 @@ namespace Practica2.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarTutor", ReplyAction="http://tempuri.org/IGestorTutoria/buscarTutorResponse")]
         System.Threading.Tasks.Task<Practica2.ServiceReference2.ProfesorTutor> buscarTutorAsync(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/buscarProfesorResponse")]
+        Practica2.ServiceReference2.Profesor buscarProfesor(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/buscarProfesorResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> buscarProfesorAsync(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutor", ReplyAction="http://tempuri.org/IGestorTutoria/agregarProfesorTutorResponse")]
+        void agregarProfesorTutor(Practica2.ServiceReference2.Profesor profesor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutor", ReplyAction="http://tempuri.org/IGestorTutoria/agregarProfesorTutorResponse")]
+        System.Threading.Tasks.Task agregarProfesorTutorAsync(Practica2.ServiceReference2.Profesor profesor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/crearProfesorResponse")]
+        Practica2.ServiceReference2.Profesor crearProfesor(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/crearProfesorResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> crearProfesorAsync(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -535,6 +747,30 @@ namespace Practica2.ServiceReference2 {
         
         public GestorTutoriaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int getNumeroTutores() {
+            return base.Channel.getNumeroTutores();
+        }
+        
+        public System.Threading.Tasks.Task<int> getNumeroTutoresAsync() {
+            return base.Channel.getNumeroTutoresAsync();
+        }
+        
+        public Practica2.ServiceReference2.Profesor getTutor(int i) {
+            return base.Channel.getTutor(i);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> getTutorAsync(int i) {
+            return base.Channel.getTutorAsync(i);
+        }
+        
+        public Practica2.ServiceReference2.Alumno[] getAlumnos(Practica2.ServiceReference2.Profesor profesor) {
+            return base.Channel.getAlumnos(profesor);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Alumno[]> getAlumnosAsync(Practica2.ServiceReference2.Profesor profesor) {
+            return base.Channel.getAlumnosAsync(profesor);
         }
         
         public void agregarAlumno(Practica2.ServiceReference2.Alumno alumno) {
@@ -567,6 +803,30 @@ namespace Practica2.ServiceReference2 {
         
         public System.Threading.Tasks.Task<Practica2.ServiceReference2.ProfesorTutor> buscarTutorAsync(int codigo) {
             return base.Channel.buscarTutorAsync(codigo);
+        }
+        
+        public Practica2.ServiceReference2.Profesor buscarProfesor(int codigo) {
+            return base.Channel.buscarProfesor(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> buscarProfesorAsync(int codigo) {
+            return base.Channel.buscarProfesorAsync(codigo);
+        }
+        
+        public void agregarProfesorTutor(Practica2.ServiceReference2.Profesor profesor) {
+            base.Channel.agregarProfesorTutor(profesor);
+        }
+        
+        public System.Threading.Tasks.Task agregarProfesorTutorAsync(Practica2.ServiceReference2.Profesor profesor) {
+            return base.Channel.agregarProfesorTutorAsync(profesor);
+        }
+        
+        public Practica2.ServiceReference2.Profesor crearProfesor(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ) {
+            return base.Channel.crearProfesor(cod, nom, dn, corr, telf, reg, idio, anho, grad, esp, fIn, fRe, fFin, categ);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Profesor> crearProfesorAsync(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ) {
+            return base.Channel.crearProfesorAsync(cod, nom, dn, corr, telf, reg, idio, anho, grad, esp, fIn, fRe, fFin, categ);
         }
     }
 }

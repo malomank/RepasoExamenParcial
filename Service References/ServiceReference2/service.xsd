@@ -1,10 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+  <xs:element name="getNumeroTutores">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNumeroTutoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getNumeroTutoresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTutor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="i" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTutorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="getTutorResult" nillable="true" type="q1:Profesor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAlumnos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q2:Profesor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAlumnosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="getAlumnosResult" nillable="true" type="q3:ArrayOfAlumno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="agregarAlumno">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="alumno" nillable="true" type="q1:Alumno" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="alumno" nillable="true" type="q4:Alumno" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -16,8 +56,8 @@
   <xs:element name="agregarReunion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="alumno" nillable="true" type="q2:Alumno" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q3:Profesor" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="alumno" nillable="true" type="q5:Alumno" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q6:Profesor" />
         <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
         <xs:element minOccurs="0" name="tema" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sugerencia" nillable="true" type="xs:string" />
@@ -39,7 +79,7 @@
   <xs:element name="buscarAlumnoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarAlumnoResult" nillable="true" type="q4:Alumno" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarAlumnoResult" nillable="true" type="q7:Alumno" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -53,7 +93,60 @@
   <xs:element name="buscarTutorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarTutorResult" nillable="true" type="q5:ProfesorTutor" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarTutorResult" nillable="true" type="q8:ProfesorTutor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarProfesor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarProfesorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarProfesorResult" nillable="true" type="q9:Profesor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="agregarProfesorTutor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q10:Profesor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="agregarProfesorTutorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearProfesor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" type="xs:int" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dn" type="xs:int" />
+        <xs:element minOccurs="0" name="corr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telf" type="xs:int" />
+        <xs:element minOccurs="0" name="reg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idio" type="xs:int" />
+        <xs:element minOccurs="0" name="anho" type="xs:int" />
+        <xs:element minOccurs="0" name="grad" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="esp" nillable="true" type="q11:Especialidad" />
+        <xs:element minOccurs="0" name="fIn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fRe" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fFin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="categ" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearProfesorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="crearProfesorResult" nillable="true" type="q12:Profesor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
