@@ -42,7 +42,7 @@ namespace Vista
             label1.Visible = true;
             IsThreadRunning = false;
             cliente = new Practica2.ServiceReference1.GestorUsuarioClient();
-            clienteTutoria = new Practica2.ServiceReference2.GestorTutoriaClient();
+            //clienteTutoria = new Practica2.ServiceReference2.GestorTutoriaClient();
         }
         /* Pregunta 6 */
         /// <summary>
@@ -61,6 +61,7 @@ namespace Vista
             //crearBinario();
             if (f.ShowDialog(this) == DialogResult.OK)
             {
+                clienteTutoria = new Practica2.ServiceReference2.GestorTutoriaClient();
                 //usuario = Login.usuarioActual;
                 //Console.WriteLine(Login.usuarioActual.Username);
                 logueado = true;
@@ -165,8 +166,7 @@ namespace Vista
                 if (!t.Join(0))
                 {
                     t.Abort();
-                }
-                
+                }                
             }
         }
 
@@ -190,14 +190,15 @@ namespace Vista
         /* Pregunta 5 */
         private void cargarArbol()
         {
-
             /* Pregunta 6 */
             this.treeView1.BeginUpdate();
             this.treeView1.Nodes.Clear();
             //Practica2.ServiceReference2.Especialidad especialidad = clienteTutoria.getEspecialidad(1);
             this.treeView1.Nodes.Add("Especialidad","Ingeniería Informática");
-            for (int i = 0; i < clienteTutoria.getNumeroTutores(); i++){
-
+            int numTutores = clienteTutoria.getNumeroTutores();
+            //Practica2.ServiceReference2.Profesor tutor;
+            //Practica2.ServiceReference2.Alumno[] ListaAlumno;
+            for (int i = 0; i < numTutores; i++){
                 Practica2.ServiceReference2.Profesor tutor = clienteTutoria.getTutor(i);             
                 this.treeView1.Nodes[0].Nodes.Add("Profesor", tutor.Codigo + "-" + tutor.Nombre);
                 Practica2.ServiceReference2.Alumno[] ListaAlumno = clienteTutoria.getAlumnos(tutor);
@@ -289,7 +290,8 @@ namespace Vista
             int codigo = extraerCodigo(palabras[0]);
             //int codigo = extraerCodigo(node.Text);
             //Alumno alumno = clienteTutoria.buscarAlumno(codigo);
-            Practica2.ServiceReference2.Alumno alumno = clienteTutoria.buscarAlumno(codigo);
+            //Practica2.ServiceReference2.Alumno alumno = clienteTutoria.buscarAlumno(codigo);
+            Practica2.ServiceReference2.Reunion[] listaReuniones = clienteTutoria.buscarReuniones(codigo);
             //Alumno alumno = GestorAlumnos.buscarAlumno(codigo);            
             ColumnAlumno.Visible = true;
             ColumnFecha.Visible = true;
@@ -297,9 +299,9 @@ namespace Vista
             ColumnaReunion.Visible = false;
             this.dataGridView1.Rows.Clear();
             //Para todas las reuniones
-            foreach (Practica2.ServiceReference2.Reunion reu in alumno.ListaReuniones)
+            foreach (Practica2.ServiceReference2.Reunion reu in listaReuniones)
             {//El 0 va xq reuniones está oculto
-                this.dataGridView1.Rows.Add(reu.Profesor.Nombre, "0", reu.Fecha, reu.Tema, alumno.Nombre + " (" + alumno.Unidad+")");
+                this.dataGridView1.Rows.Add(reu.Profesor.Nombre, "0", reu.Fecha, reu.Tema, reu.Alumno.Nombre + " (" + reu.Alumno.Unidad+")");
             }
             
         }
@@ -442,6 +444,8 @@ namespace Vista
             //treeView1.Visible = false;
             //dataGridView1.Visible = false;
             //cliente.guardarUsuarios();
+
+            //clienteTutoria.desconectarBD_DesdeGestor();
             crearDatosDeBinario();
             AbortarThreadTimer();
         }

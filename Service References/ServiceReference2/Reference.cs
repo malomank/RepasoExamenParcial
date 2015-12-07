@@ -729,6 +729,12 @@ namespace Practica2.ServiceReference2 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarReunion", ReplyAction="http://tempuri.org/IGestorTutoria/agregarReunionResponse")]
         System.Threading.Tasks.Task agregarReunionAsync(Practica2.ServiceReference2.Alumno alumno, Practica2.ServiceReference2.Profesor profesor, System.DateTime fecha, string tema, string sugerencia);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarReuniones", ReplyAction="http://tempuri.org/IGestorTutoria/buscarReunionesResponse")]
+        Practica2.ServiceReference2.Reunion[] buscarReuniones(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarReuniones", ReplyAction="http://tempuri.org/IGestorTutoria/buscarReunionesResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Reunion[]> buscarReunionesAsync(int codigo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarAlumno", ReplyAction="http://tempuri.org/IGestorTutoria/buscarAlumnoResponse")]
         Practica2.ServiceReference2.Alumno buscarAlumno(int codigo);
         
@@ -752,6 +758,12 @@ namespace Practica2.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutor", ReplyAction="http://tempuri.org/IGestorTutoria/agregarProfesorTutorResponse")]
         System.Threading.Tasks.Task agregarProfesorTutorAsync(Practica2.ServiceReference2.Profesor profesor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestor", ReplyAction="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestorResponse")]
+        void desconectarBD_DesdeGestor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestor", ReplyAction="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestorResponse")]
+        System.Threading.Tasks.Task desconectarBD_DesdeGestorAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/crearProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/crearProfesorResponse")]
         Practica2.ServiceReference2.Profesor crearProfesor(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ);
@@ -841,6 +853,14 @@ namespace Practica2.ServiceReference2 {
             return base.Channel.agregarReunionAsync(alumno, profesor, fecha, tema, sugerencia);
         }
         
+        public Practica2.ServiceReference2.Reunion[] buscarReuniones(int codigo) {
+            return base.Channel.buscarReuniones(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Reunion[]> buscarReunionesAsync(int codigo) {
+            return base.Channel.buscarReunionesAsync(codigo);
+        }
+        
         public Practica2.ServiceReference2.Alumno buscarAlumno(int codigo) {
             return base.Channel.buscarAlumno(codigo);
         }
@@ -871,6 +891,14 @@ namespace Practica2.ServiceReference2 {
         
         public System.Threading.Tasks.Task agregarProfesorTutorAsync(Practica2.ServiceReference2.Profesor profesor) {
             return base.Channel.agregarProfesorTutorAsync(profesor);
+        }
+        
+        public void desconectarBD_DesdeGestor() {
+            base.Channel.desconectarBD_DesdeGestor();
+        }
+        
+        public System.Threading.Tasks.Task desconectarBD_DesdeGestorAsync() {
+            return base.Channel.desconectarBD_DesdeGestorAsync();
         }
         
         public Practica2.ServiceReference2.Profesor crearProfesor(int cod, string nom, int dn, string corr, int telf, string reg, int idio, int anho, string grad, Practica2.ServiceReference2.Especialidad esp, string fIn, string fRe, string fFin, string categ) {

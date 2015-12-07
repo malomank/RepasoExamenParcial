@@ -43,6 +43,12 @@
   <wsdl:message name="IGestorTutoria_agregarReunion_OutputMessage">
     <wsdl:part name="parameters" element="tns:agregarReunionResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarReuniones_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarReuniones" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarReuniones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarReunionesResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestorTutoria_buscarAlumno_InputMessage">
     <wsdl:part name="parameters" element="tns:buscarAlumno" />
   </wsdl:message>
@@ -66,6 +72,12 @@
   </wsdl:message>
   <wsdl:message name="IGestorTutoria_agregarProfesorTutor_OutputMessage">
     <wsdl:part name="parameters" element="tns:agregarProfesorTutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_desconectarBD_DesdeGestor_InputMessage">
+    <wsdl:part name="parameters" element="tns:desconectarBD_DesdeGestor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_desconectarBD_DesdeGestor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:desconectarBD_DesdeGestorResponse" />
   </wsdl:message>
   <wsdl:message name="IGestorTutoria_crearProfesor_InputMessage">
     <wsdl:part name="parameters" element="tns:crearProfesor" />
@@ -104,6 +116,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarReunion" message="tns:IGestorTutoria_agregarReunion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarReunionResponse" message="tns:IGestorTutoria_agregarReunion_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="buscarReuniones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarReuniones" message="tns:IGestorTutoria_buscarReuniones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/buscarReunionesResponse" message="tns:IGestorTutoria_buscarReuniones_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="buscarAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarAlumno" message="tns:IGestorTutoria_buscarAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/buscarAlumnoResponse" message="tns:IGestorTutoria_buscarAlumno_OutputMessage" />
@@ -119,6 +135,10 @@
     <wsdl:operation name="agregarProfesorTutor">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutor" message="tns:IGestorTutoria_agregarProfesorTutor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarProfesorTutorResponse" message="tns:IGestorTutoria_agregarProfesorTutor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="desconectarBD_DesdeGestor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestor" message="tns:IGestorTutoria_desconectarBD_DesdeGestor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestorResponse" message="tns:IGestorTutoria_desconectarBD_DesdeGestor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="crearProfesor">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/crearProfesor" message="tns:IGestorTutoria_crearProfesor_InputMessage" />
@@ -185,6 +205,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="buscarReuniones">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/buscarReuniones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="buscarAlumno">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/buscarAlumno" style="document" />
       <wsdl:input>
@@ -214,6 +243,15 @@
     </wsdl:operation>
     <wsdl:operation name="agregarProfesorTutor">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/agregarProfesorTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="desconectarBD_DesdeGestor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/desconectarBD_DesdeGestor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
