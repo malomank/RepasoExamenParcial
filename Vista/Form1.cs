@@ -462,6 +462,7 @@ namespace Vista
         /* Pregunta 6 */ 
         private void atencionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //CAMBIAR
             this.dataGridView1.Visible = true;
             this.dataGridView1.Rows.Clear();
             ColumnAlumno.Visible = false;
@@ -508,6 +509,7 @@ namespace Vista
 
         private void pintar()
         {
+            //CAMBIAR
             Graphics g = this.splitContainer1.Panel2.CreateGraphics();
             
             Font fTexto = this.splitContainer1.Panel2.Font;
