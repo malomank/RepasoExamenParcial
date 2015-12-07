@@ -93,6 +93,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="buscarReunionesPorProfesor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarReunionesPorProfesorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarReunionesPorProfesorResult" nillable="true" type="q10:ArrayOfReunion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="buscarReuniones">
     <xs:complexType>
       <xs:sequence>
@@ -103,7 +117,7 @@
   <xs:element name="buscarReunionesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarReunionesResult" nillable="true" type="q10:ArrayOfReunion" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarReunionesResult" nillable="true" type="q11:ArrayOfReunion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -117,7 +131,7 @@
   <xs:element name="buscarAlumnoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarAlumnoResult" nillable="true" type="q11:Alumno" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarAlumnoResult" nillable="true" type="q12:Alumno" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -131,7 +145,7 @@
   <xs:element name="buscarTutorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarTutorResult" nillable="true" type="q12:ProfesorTutor" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarTutorResult" nillable="true" type="q13:ProfesorTutor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -145,14 +159,14 @@
   <xs:element name="buscarProfesorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarProfesorResult" nillable="true" type="q13:Profesor" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarProfesorResult" nillable="true" type="q14:Profesor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="agregarProfesorTutor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q14:Profesor" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="profesor" nillable="true" type="q15:Profesor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -183,7 +197,7 @@
         <xs:element minOccurs="0" name="idio" type="xs:int" />
         <xs:element minOccurs="0" name="anho" type="xs:int" />
         <xs:element minOccurs="0" name="grad" nillable="true" type="xs:string" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="esp" nillable="true" type="q15:Especialidad" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="esp" nillable="true" type="q16:Especialidad" />
         <xs:element minOccurs="0" name="fIn" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="fRe" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="fFin" nillable="true" type="xs:string" />
@@ -194,7 +208,7 @@
   <xs:element name="crearProfesorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="crearProfesorResult" nillable="true" type="q16:Profesor" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="crearProfesorResult" nillable="true" type="q17:Profesor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

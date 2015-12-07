@@ -462,6 +462,7 @@ namespace Vista
         /* Pregunta 6 */ 
         private void atencionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             //CAMBIAR
             this.dataGridView1.Visible = true;
             this.dataGridView1.Rows.Clear();
@@ -471,7 +472,7 @@ namespace Vista
             ColumnaReunion.Visible = true;
 
             if (tipoUsuario == 0) { 
-                foreach (ProfesorTutor profe in GestorTutores.Tutores)
+                foreach (Practica2.ServiceReference2.ProfesorTutor profe in GestorTutores.Tutores)
                 {//El 0 va xq reuniones está oculto                                   
                     this.dataGridView1.Rows.Add(profe.Profesor.Nombre, profe.ListaReunion.Count.ToString(), "0", "0", "0");
                 }
@@ -504,7 +505,7 @@ namespace Vista
                     this.dataGridView1.Rows.Add(GestorTutores.Tutores[i].Profesor.Nombre, atendidos, "0", "0", "0");
                 }
             }
-
+            */
         }
 
         private void pintar()
@@ -544,7 +545,6 @@ namespace Vista
                         }
                     }
                 }
-
             }
 
 
@@ -603,6 +603,7 @@ namespace Vista
 
          private void graficoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //CAMBIAR
             this.dataGridView1.Visible = false;
             pintar();
         }
@@ -627,9 +628,10 @@ namespace Vista
         /* Pregunta 6 */
         private void reunionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            reporteReuniones = new ReunionesPorFecha(this);
+            reporteReuniones = new ReunionesPorFecha(this,cli);
             if (reporteReuniones.ShowDialog(this) == DialogResult.None && !t.IsAlive)
             {
+
             }
         }
 

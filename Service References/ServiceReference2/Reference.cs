@@ -729,6 +729,12 @@ namespace Practica2.ServiceReference2 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/agregarReunion", ReplyAction="http://tempuri.org/IGestorTutoria/agregarReunionResponse")]
         System.Threading.Tasks.Task agregarReunionAsync(Practica2.ServiceReference2.Alumno alumno, Practica2.ServiceReference2.Profesor profesor, System.DateTime fecha, string tema, string sugerencia);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesorResponse")]
+        Practica2.ServiceReference2.Reunion[] buscarReunionesPorProfesor(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesor", ReplyAction="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesorResponse")]
+        System.Threading.Tasks.Task<Practica2.ServiceReference2.Reunion[]> buscarReunionesPorProfesorAsync(int codigo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestorTutoria/buscarReuniones", ReplyAction="http://tempuri.org/IGestorTutoria/buscarReunionesResponse")]
         Practica2.ServiceReference2.Reunion[] buscarReuniones(int codigo);
         
@@ -851,6 +857,14 @@ namespace Practica2.ServiceReference2 {
         
         public System.Threading.Tasks.Task agregarReunionAsync(Practica2.ServiceReference2.Alumno alumno, Practica2.ServiceReference2.Profesor profesor, System.DateTime fecha, string tema, string sugerencia) {
             return base.Channel.agregarReunionAsync(alumno, profesor, fecha, tema, sugerencia);
+        }
+        
+        public Practica2.ServiceReference2.Reunion[] buscarReunionesPorProfesor(int codigo) {
+            return base.Channel.buscarReunionesPorProfesor(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<Practica2.ServiceReference2.Reunion[]> buscarReunionesPorProfesorAsync(int codigo) {
+            return base.Channel.buscarReunionesPorProfesorAsync(codigo);
         }
         
         public Practica2.ServiceReference2.Reunion[] buscarReuniones(int codigo) {

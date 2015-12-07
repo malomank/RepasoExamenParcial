@@ -43,6 +43,12 @@
   <wsdl:message name="IGestorTutoria_agregarReunion_OutputMessage">
     <wsdl:part name="parameters" element="tns:agregarReunionResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarReunionesPorProfesor_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarReunionesPorProfesor" />
+  </wsdl:message>
+  <wsdl:message name="IGestorTutoria_buscarReunionesPorProfesor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarReunionesPorProfesorResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestorTutoria_buscarReuniones_InputMessage">
     <wsdl:part name="parameters" element="tns:buscarReuniones" />
   </wsdl:message>
@@ -115,6 +121,10 @@
     <wsdl:operation name="agregarReunion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/agregarReunion" message="tns:IGestorTutoria_agregarReunion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/agregarReunionResponse" message="tns:IGestorTutoria_agregarReunion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarReunionesPorProfesor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesor" message="tns:IGestorTutoria_buscarReunionesPorProfesor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesorResponse" message="tns:IGestorTutoria_buscarReunionesPorProfesor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="buscarReuniones">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestorTutoria/buscarReuniones" message="tns:IGestorTutoria_buscarReuniones_InputMessage" />
@@ -198,6 +208,15 @@
     </wsdl:operation>
     <wsdl:operation name="agregarReunion">
       <soap:operation soapAction="http://tempuri.org/IGestorTutoria/agregarReunion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarReunionesPorProfesor">
+      <soap:operation soapAction="http://tempuri.org/IGestorTutoria/buscarReunionesPorProfesor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

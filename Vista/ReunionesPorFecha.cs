@@ -1,5 +1,5 @@
-﻿using Controlador;
-using Modelo;
+﻿//using Controlador;
+//using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,15 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Vista;
+using Practica2.ServiceReference2;
 /* Pregunta 6 */
 namespace Practica2.Vista
 {
     public partial class ReunionesPorFecha : Form
     {
-        public ReunionesPorFecha(Form1 padre)
+        GestorTutoriaClient clienteTutoria;
+        Form1 padre2;
+        public ReunionesPorFecha(Form1 padre,Practica2.ServiceReference2.GestorTutoriaClient cliente)
         {
             InitializeComponent();
             DialogResult = DialogResult.None;
+            clienteTutoria = cliente;
+            padre2 = padre;
             //this.splitContainer1.Panel2.Paint += new PaintEventHandler(splitContainer1_Panel2_Paint);
             padre.mytimer.restablecer(0, 1, 0);
         }
@@ -26,32 +31,37 @@ namespace Practica2.Vista
         {
             //Limpiar dibujo
             this.splitContainer1.Panel2.Refresh();
+            padre2.mytimer.restablecer(0, 1, 0);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            padre2.mytimer.restablecer(0, 1, 0);
             this.splitContainer1.Panel2.Refresh();
             if(textBoxCodigo.Text != ""){
-                ProfesorTutor tutor = GestorTutores.buscarTutor(int.Parse(textBoxCodigo.Text));
-                if (tutor == null)
-                    MessageBox.Show("Profesor no encontrado", "Búsqueda Fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reunion[] listaBusqueda = clienteTutoria.buscarReunionesPorProfesor(int.Parse(textBoxCodigo.Text));
+                //ProfesorTutor tutor = clienteTutoria.buscarTutor(int.Parse(textBoxCodigo.Text));
+                //if (listaBusqueda == null)
+                if(listaBusqueda.Length == 0)
+                    MessageBox.Show("Profesor no encontrado o sin Reuniones", "Búsqueda Fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    List<Reunion> listaBusqueda = new List<Reunion>();
-                    foreach (Reunion reu in tutor.ListaReunion)
+                    List<Reunion> listaCompleta = new List<Reunion>();
+                    //Reunion[] listaBusqueda = clienteTutoria.buscarReunionesPorProfesor(tutor.Codigo);
+                    foreach (Reunion reu in listaBusqueda)
                     {
                         if (dateTimePickerInicio.Value < reu.Fecha && dateTimePickerFin.Value >= reu.Fecha)
                         {
-                            listaBusqueda.Add(reu);
+                            listaCompleta.Add(reu);
                         }
                     }
-                    pintar(tutor,listaBusqueda);
+                    pintar(listaBusqueda[0].Profesor, listaCompleta);
                 }
             }
         }
 
 
-        private void pintar(ProfesorTutor tutor, List<Reunion> lista)
+        private void pintar(Profesor tutor, List<Reunion> lista)
         {
             Graphics g = this.splitContainer1.Panel2.CreateGraphics();
 
@@ -64,7 +74,7 @@ namespace Practica2.Vista
             //Grafico
             int x = 1, y = 40;
             Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0));
-            g.DrawString("Reuniones del Profesor " + tutor.Profesor.Nombre +" - " + tutor.Profesor.Codigo.ToString() + ":", fTexto, b, new Point(x + 100, y - 20));
+            g.DrawString("Reuniones del Profesor " + tutor.Nombre +" - " + tutor.Codigo.ToString() + ":", fTexto, b, new Point(x + 100, y - 20));
             g.DrawString("del " + dateTimePickerInicio.Text + " al " + dateTimePickerFin.Text , fTexto, b, new Point(x + 100, y));
             g.DrawString("Reuniones: " + total, fTexto, b, new Point(x + 110, y + 20));
 
